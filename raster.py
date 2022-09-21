@@ -21,3 +21,12 @@ class interfaz (QMainWindow):
 
     def cerrar(self):
         self.close()
+    def nombreCmb(self):
+        layers = QgsProject.instance().mapLayers().values()
+        for layer in layers:
+            if layer.type() == 0:
+                nomVLayer = layer.name()
+                self.ui.label_1.setText(nomVLayer)
+            if layer.type() == 1:
+                nomRLayer = layer.name()
+                self.ui.label_1.setTex(nomRLayer)
